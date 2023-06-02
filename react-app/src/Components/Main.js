@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./style.css";
-import { GetPictures } from "../../Platform/Api";
+import { GetPictures } from "../Platform/Api";
 import { useParams } from "react-router-dom";
+import { Button } from "./styles/Button.styled";
+import { ImgBoxes, ImgDiv, StyledMain } from "./styles/Main.styled";
 
 export const Main = () => {
     const { id } = useParams();
@@ -32,17 +33,14 @@ export const Main = () => {
         }
     };
 
-    return <div className="main">
-        <div className="img-boxes">
+    return <StyledMain>
+        <ImgBoxes>
             {images.map ((item, index) => {
-                return <div key={index} className="img-div">
+                return <ImgDiv key={index}>
                     <img src={item.url} alt="img"/>
-                </div>
+                </ImgDiv>
             })}
-        </div>
-        <button className="loadmore" 
-            onClick={() => loadMore(pagecount)}>
-            Load More
-        </button>
-    </div>
+        </ImgBoxes>
+        <Button onClick={() => loadMore(pagecount)}>Load More</Button>
+    </StyledMain>
 }

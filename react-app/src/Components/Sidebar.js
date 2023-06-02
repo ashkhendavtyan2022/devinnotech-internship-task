@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./style.css";
-import { GetCategory } from "../../Platform/Api";
+import { GetCategory } from "../Platform/Api";
 import { NavLink } from "react-router-dom";
+import { CatItem, CatItems, StyledSidebar } from "./styles/Sidebar.styled";
 
 export const Sidebar = () => {
     const [category, setCategory] = useState([]);
@@ -21,19 +21,18 @@ export const Sidebar = () => {
         }
     };
 
-    return <nav className="sidebar">
-        <ul className="cat-items">
+    return <StyledSidebar>
+        <CatItems>
             {category ? category.map((item, index) => 
-            <li className="cat-item" key={index}>
-                <NavLink
-                    className={({isActive}) => isActive ? "active" : null} 
+                <CatItem key={index}>
+                    <NavLink 
                         to={`${item.id}`} 
                     >
                         {item.name}
-                </NavLink>
-            </li>
+                    </NavLink>
+                </CatItem>
             ) :null
             }
-        </ul>
-    </nav>
+       </CatItems> 
+    </StyledSidebar>
 }
