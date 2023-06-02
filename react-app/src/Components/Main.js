@@ -16,10 +16,15 @@ export const Main = () => {
     }, [id, pagecount]);
 
     const GetImageList = async(page, id) => {
-        const result = await GetPictures(page, id)
-        if(result.data) {
-            setCatImages(result.data)
+        try {
+            const result = await GetPictures(page, id)
+            if(result.data) {
+                setCatImages(result.data)
+            }
+        } catch (error) {
+            console.log(error)
         }
+        
     };
 
     const loadMore = async(page) => {
