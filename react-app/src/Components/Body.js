@@ -26,6 +26,6 @@ export const Body = () => {
                     <img src={item.url} alt="img"/>
                 </ImgDiv>
             })}
-        </ImgBoxes>
+        </ImgBoxes> 
 </StyledMain>
 }
