@@ -5,6 +5,7 @@ import {Sidebar} from './Components/Sidebar';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './Components/styles/GlobalStyles';
 import { Container } from './Components/styles/Container.styled';
+import { Body } from './Components/Body';
 
 const theme = {
   colors: {
@@ -24,6 +25,7 @@ function App() {
     <Container>
       <Sidebar />
       <Routes>
+        <Route path="/" element={<Body />}/>
         <Route path="/:id" element={<Main />} />
       </Routes>
     </Container>

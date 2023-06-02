@@ -7,3 +7,7 @@ export const GetCategory = () => {
 export const GetPictures = (page, id) => {
     return axios.get(`https://api.thecatapi.com/v1/images/search?limit=10&page=${page}&category_ids=${id}`)
 }
+
+export const DefaultPictures = () => {
+    return axios.get(`https://api.thecatapi.com/v1/images/search?limit=10&page=1`)
+}
